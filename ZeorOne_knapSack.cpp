@@ -72,13 +72,13 @@ int main()
         {
 
             i--;
-            cout << arr[i-1].name << " ";
         }
         else
         {
+            cout << arr[i-1].name << " ";
             i--;
             j-=arr[i].weight;
-            cout << arr[i-1].name << " ";
+
         }
     }
     cout << endl;
@@ -97,6 +97,6 @@ P w
 3 5 4
 4 7 5
 knapsack = 9;
-Items = 3,2,1;
+Items = 3,2;
 
 */
