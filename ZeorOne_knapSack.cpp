@@ -31,7 +31,6 @@ int main()
     int c = capacity;
 
     int tabler[r+1][c+1];
-    char tracker[r+1][c+1];
 
     for(int i =0; i<=r; i++)
     {
