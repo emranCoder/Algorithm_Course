@@ -28,7 +28,6 @@ int BFS(int s)
                 q.push(node);
                 cout << node << " ";
             }
-
         }
     }
 
