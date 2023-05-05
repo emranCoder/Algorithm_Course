@@ -36,22 +36,22 @@ int main()
     }
     key[0] = 0;
     parent[0]=-1;
-    pq.push({0,0});
+    pq.push({0,0}); // this pair:  first value weight for this node, second value node
 
     while(!pq.empty())
     {
-        int p_node = pq.top().second;
+        int p_node = pq.top().second;//staring node
         pq.pop();
         inMST[p_node] = true;
 
         for(auto it:adj[p_node])
         {
-            int v = it.first;
-            int weight = it.second;
+            int v = it.first; // under staring node all nodes
+            int weight = it.second; // current node weight
             if(inMST[v]==false && weight<key[v])
             {
-                key[v] = weight;
-                parent[v] = p_node;
+                key[v] = weight; // under staring node all node
+                parent[v] = p_node; // changed weight parent valuse added.
                 pq.push({key[v], v});
             }
         }
