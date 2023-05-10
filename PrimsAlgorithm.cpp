@@ -8,8 +8,16 @@ int main()
     cout << "Enter The Number of vertex: ";
     cin >> n;
     int edge;
-    cout << "Enter The number of Connected Node: ";
+    cout << "Enter The Number of Edges: ";
     cin>> edge;
+    int st,l=1;
+    cout << "Enter The Starting Node: " ;
+    cin >> st;
+    if(st>0)
+    {
+        n+=1;
+        l = 2;
+    }
     vector<pair<int, int > > adj[n];
 
     /*Take Input for Graph */
@@ -22,7 +30,7 @@ int main()
         adj[v].push_back({u, wt});
     }
 
-    priority_queue< pair<int, int>, vector<pair<int, int> > , greater<pair<int, int> >  > pq;
+    priority_queue< pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> >  > pq;
 
     int key[n]; // weight stored for the visited node
     int parent[n]; // when the weight changed then the parent will be added there
@@ -33,9 +41,9 @@ int main()
         key[i]=INT_MAX; // Every key value made infinity.
         inMST[i]= false;// Visiting node all false.
     }
-    key[0] = 0;
-    parent[0]=-1;
-    pq.push({0,0}); // this pair:  first value weight for this node, second value node
+    key[st] = 0;
+    parent[st]=-1;
+    pq.push({0,st}); // this pair:  first value weight for this node, second value node
 
     while(!pq.empty())
     {
@@ -55,12 +63,14 @@ int main()
             }
         }
     }
-
+    int cost =0;
     cout << "Primes MST: " << endl;
-    for(int i =1; i<n; i++)
+    for(int i =l; i<n; i++)
     {
+        cost+=key[i];
         cout << parent[i] << " - " << i << endl;
     }
+    cout << "Total Cost: " << cost << endl;
 
     return 0;
 }
@@ -68,19 +78,11 @@ int main()
 
 /*
 Input Value:
-9 14
-0 1 4
-0 7 8
-1 2 8
-1 7 11
-2 3 7
-2 8 2
-2 5 4
-3 4 9
-3 5 14
-4 5 10
-5 6 2
-6 7 1
-6 8 6
-7 8 7
+4 6
+1 2 2
+1 3 1
+1 4 3
+2 3 4
+2 4 1
+3 4 2
 */
