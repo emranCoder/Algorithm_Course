@@ -59,6 +59,22 @@ int main()
 
 
     cout << "The minimum Number of Coins: " << tabler_method[n][amount] << endl;
+    
+    int i = n;
+    int j = amount;
+
+    while( i>0 && j>0 )
+    {
+        if(tabler_method[i][j]!=tabler_method[i-1][j])
+        {
+            cout << arr[i-1] << " ";
+            j-=arr[i-1];
+        }else
+        {
+            i--;
+        }
+    }
+    cout << endl;
 
 
 
